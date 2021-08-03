@@ -43,11 +43,12 @@ class Directory extends React.Component {
       ]      
     }
   }
+  //instead of using destruture we use the spread opperator to get the values so instead of map(({id, size, title})
   render() {
     return (
       <div className='directory-menu'>
-        {this.state.sections.map(({title, imageUrl, id, size}) => (
-            <MenuItem key={id} tilte={title} imageUrl={imageUrl} size={size}/>
+        {this.state.sections.map(({id, ...otherSectionProps }) => (
+            <MenuItem key={id} {...otherSectionProps}/>
         ))}
       </div>
 
